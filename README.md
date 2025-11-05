@@ -38,6 +38,7 @@ A API foi projetada para gerenciar **contas bancárias**, **transações (depós
 ## 🧩 Estrutura do Projeto
 
 ```
+
 📂 app/
 ├── __init__.py
 ├── main.py                # Ponto de entrada da aplicação
@@ -56,7 +57,7 @@ A API foi projetada para gerenciar **contas bancárias**, **transações (depós
 └── README.md              # Documentação do projeto
 '''
 
-🚀 Como Executar o Projeto
+# 🚀 Como Executar o Projeto
 1️⃣ Clonar o repositório
 
 git clone https://github.com/SEU_USUARIO/bank-api.git
