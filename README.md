@@ -54,6 +54,7 @@ A API foi projetada para gerenciar **contas bancárias**, **transações (depós
 ├── .env.example           # Exemplo de variáveis de ambiente
 ├── requirements.txt       # Dependências do projeto
 └── README.md              # Documentação do projeto
+'''
 
 🚀 Como Executar o Projeto
 1️⃣ Clonar o repositório
