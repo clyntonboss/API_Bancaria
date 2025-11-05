@@ -14,8 +14,8 @@
 O **Desafio: API Bancária Assíncrona com FastAPI** foi desenvolvido como parte do curso:
 
 > **Certificação:** Luizalabs – Dominando Funções e Boas Práticas em Python™  
-> **Curso:** Programação Orientada a Objetos com Python™  
-> **Módulo:** Modelando o Sistema Bancário em POO com Python™
+> **Curso:** Criando sua API Bancária Assíncrona com FastAPI™  
+> **Módulo:** Evoluindo com APIs Assíncronas com FastAPI™
 
 Esta aplicação tem como objetivo demonstrar a criação de uma **API RESTful** moderna, segura e eficiente, utilizando **FastAPI** com operações **assíncronas**, **autenticação JWT** e persistência de dados em **SQLite**.
 
@@ -39,18 +39,18 @@ A API foi projetada para gerenciar **contas bancárias**, **transações (depós
 
 ```bash
 📂 app/
-├── __init__.py
-├── main.py                # Ponto de entrada da aplicação
-├── database.py            # Conexão e inicialização do banco SQLite
-├── models.py              # Modelos ORM (SQLAlchemy)
-├── schemas.py             # Estruturas Pydantic para validação de dados
-├── auth.py                # Lógica de autenticação e geração de tokens JWT
+├── __init__.py            # Indica que o diretório é um pacote Python
+├── auth.py                # Contém toda a lógica de autenticação e autorização
+├── config.py              # Armazena configurações globais da aplicação
+├── crud.py                # Contém as operações CRUD (Create, Read, Update, Delete)
+├── db.py                  # Define a conexão com o banco de dados e cria a sessão (SessionLocal)
+├── main.py                # Ponto de entrada da aplicação FastAPI
+├── models.py              # Define os modelos ORM (SQLAlchemy) que representam as tabelas do banco de dados
+├── schemas.py             # Define os schemas (modelos Pydantic) usados para validação e serialização dos dados
 ├── routers/
 │   ├── users.py           # Endpoints de usuários e autenticação
 │   ├── accounts.py        # Endpoints de contas bancárias
 │   └── transactions.py    # Endpoints de transações
-├── utils/
-│   └── security.py        # Funções auxiliares para criptografia e validações
 ├── .env.example           # Exemplo de variáveis de ambiente
 ├── requirements.txt       # Dependências do projeto
 └── README.md              # Documentação do projeto
@@ -108,7 +108,7 @@ A API utiliza **JSON Web Token (JWT)** para proteger endpoints sensíveis.
 ```bash
 POST /users/register
 {
-  "username": "rogerio",
+  "username": "chronos",
   "password": "123456"
 }
 ```
@@ -117,7 +117,7 @@ POST /users/register
 ```bash
 POST /users/login
 {
-  "username": "rogerio",
+  "username": "chronos",
   "password": "123456"
 }
 ```
@@ -232,15 +232,14 @@ Sinta-se livre para utilizá-lo, modificá-lo e aprimorá-lo conforme suas neces
 ## 👨‍💻 Autor
 
 **Rogério Clynton Ribeiro**  
-📍 Volta Redonda - RJ  
-💼 [ClyntonChronos](https://github.com/ClyntonChronos)  
+💼 [ClyntonBoss](https://github.com/ClyntonBoss)  
 💡 “Inovação é transformar conhecimento em valor real.”
 
 ---
 
 ## 💬 Agradecimentos
 
-Agradecimentos especiais à equipe **Luizalabs** pela inspiração e incentivo ao domínio de **boas práticas em Python** e **desenvolvimento assíncrono com FastAPI**.
+Agradecimentos especiais à equipe **Luizalabs** e **DIO (Digital Innovation One)** pela inspiração e incentivo ao domínio de **boas práticas em Python™** e **desenvolvimento assíncrono com FastAPI**.
 
 ---
 
