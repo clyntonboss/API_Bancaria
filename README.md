@@ -55,64 +55,7 @@ A API foi projetada para gerenciar **contas bancárias**, **transações (depós
 ├── requirements.txt       # Dependências do projeto
 └── README.md              # Documentação do projeto
 
-# 💰 API Bancária Assíncrona com FastAPI
-
-![Status](https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow)
-![Python](https://img.shields.io/badge/Python-3.10%2B-blue)
-![FastAPI](https://img.shields.io/badge/FastAPI-Asynchronous-green)
-![SQLite](https://img.shields.io/badge/Database-SQLite-lightgrey)
-![JWT](https://img.shields.io/badge/Auth-JWT-orange)
-![License](https://img.shields.io/badge/License-MIT-lightblue)
-
----
-
-## 🧠 Sobre o Projeto
-
-O **Desafio: API Bancária Assíncrona com FastAPI** foi desenvolvido como parte do curso:
-
-> **Certificação:** Luizalabs – Dominando Funções e Boas Práticas em Python™  
-> **Curso:** Criando sua API Bancária Assíncrona com FastAPI™  
-> **Módulo:** Evoluindo com APIs Assíncronas com FastAPI™
-
-Esta aplicação tem como objetivo demonstrar a criação de uma **API RESTful** moderna, segura e eficiente, utilizando **FastAPI** com operações **assíncronas**, **autenticação JWT** e persistência de dados em **SQLite**.
-
-A API foi projetada para gerenciar **contas bancárias**, **transações (depósitos e saques)** e **consultas de extratos**, aplicando boas práticas de arquitetura, modularização e segurança.
-
----
-
-## ⚙️ Funcionalidades
-
-✅ Cadastro de usuários e autenticação com JWT  
-✅ Criação de contas bancárias  
-✅ Registro de transações (depósito e saque)  
-✅ Validação de saldo e valores negativos  
-✅ Consulta de extrato completo da conta  
-✅ Documentação interativa via Swagger (OpenAPI)  
-✅ Banco de dados local em SQLite  
-
----
-
-## 🧩 Estrutura do Projeto
-
-```bash
-📂 app/
-├── __init__.py
-├── main.py                # Ponto de entrada da aplicação
-├── database.py            # Conexão e inicialização do banco SQLite
-├── models.py              # Modelos ORM (SQLAlchemy)
-├── schemas.py             # Estruturas Pydantic para validação de dados
-├── auth.py                # Lógica de autenticação e geração de tokens JWT
-├── routers/
-│   ├── users.py           # Endpoints de usuários e autenticação
-│   ├── accounts.py        # Endpoints de contas bancárias
-│   └── transactions.py    # Endpoints de transações
-├── utils/
-│   └── security.py        # Funções auxiliares para criptografia e validações
-├── .env.example           # Exemplo de variáveis de ambiente
-├── requirements.txt       # Dependências do projeto
-└── README.md              # Documentação do projeto
-
-# 🚀 Como Executar o Projeto
+🚀 Como Executar o Projeto
 1️⃣ Clonar o repositório
 
 git clone https://github.com/SEU_USUARIO/bank-api.git
