@@ -37,7 +37,7 @@ A API foi projetada para gerenciar **contas bancárias**, **transações (depós
 
 ## 🧩 Estrutura do Projeto
 
-```bash
+```
 📂 app/
 ├── __init__.py
 ├── main.py                # Ponto de entrada da aplicação
