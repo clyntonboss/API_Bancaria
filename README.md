@@ -37,8 +37,7 @@ A API foi projetada para gerenciar **contas bancárias**, **transações (depós
 
 ## 🧩 Estrutura do Projeto
 
-```
-
+```bash
 📂 app/
 ├── __init__.py
 ├── main.py                # Ponto de entrada da aplicação
@@ -55,155 +54,194 @@ A API foi projetada para gerenciar **contas bancárias**, **transações (depós
 ├── .env.example           # Exemplo de variáveis de ambiente
 ├── requirements.txt       # Dependências do projeto
 └── README.md              # Documentação do projeto
-'''
+```
 
-# 🚀 Como Executar o Projeto
-1️⃣ Clonar o repositório
+---
 
+## 🚀 Como Executar o Projeto
+
+### 1️⃣ Clonar o repositório
+
+```bash
 git clone https://github.com/SEU_USUARIO/bank-api.git
 cd bank-api
+```
 
-2️⃣ Criar ambiente virtual e instalar dependências
+### 2️⃣ Criar ambiente virtual e instalar dependências
 
+```bash
 python -m venv venv
 source venv/bin/activate       # Linux/Mac
-venv\Scripts\activate          # Windows
+venv\Scripts\activate        # Windows
 
 pip install -r requirements.txt
+```
 
-3️⃣ Executar a API
+### 3️⃣ Executar a API
 
+```bash
 uvicorn app.main:app --reload
+```
 
-4️⃣ Acessar a documentação interativa
+### 4️⃣ Acessar a documentação interativa
 
-    Swagger UI: http://127.0.0.1:8000/docs
+- Swagger UI: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)  
+- Redoc: [http://127.0.0.1:8000/redoc](http://127.0.0.1:8000/redoc)
 
-Redoc: http://127.0.0.1:8000/redoc
-🔐 Autenticação JWT
+---
 
-A API utiliza JSON Web Token (JWT) para proteger endpoints sensíveis.
-Exemplo de fluxo:
+## 🔐 Autenticação JWT
 
-    Crie um usuário (POST /users/register)
+A API utiliza **JSON Web Token (JWT)** para proteger endpoints sensíveis.
 
-    Faça login (POST /users/login) e receba o token JWT
+### Exemplo de fluxo:
 
-    Envie o token no header Authorization: Bearer <token> para acessar endpoints protegidos
+1. Crie um usuário (`POST /users/register`)  
+2. Faça login (`POST /users/login`) e receba o token JWT  
+3. Envie o token no header `Authorization: Bearer <token>` para acessar endpoints protegidos  
 
-🧾 Exemplos de Requisições
-🔸 Criar Usuário
+---
 
+## 🧾 Exemplos de Requisições
+
+### 🔸 Criar Usuário
+```bash
 POST /users/register
 {
-  "username": "chronos",
+  "username": "rogerio",
   "password": "123456"
 }
+```
 
-🔸 Login
-
+### 🔸 Login
+```bash
 POST /users/login
 {
-  "username": "chronos",
+  "username": "rogerio",
   "password": "123456"
 }
+```
 
-🔸 Criar Conta
-
+### 🔸 Criar Conta
+```bash
 POST /accounts/
 {
-  "user_id": 1
+  "initial_deposit": 100.0
 }
+```
 
-🔸 Realizar Depósito
-
-POST /transactions/deposit
+### 🔸 Realizar Depósito
+```bash
+POST /accounts/{account_id}/transactions
 {
-  "account_id": 1,
+  "type": "deposit",
   "amount": 500.00
 }
+```
 
-🔸 Realizar Saque
-
-POST /transactions/withdraw
+### 🔸 Realizar Saque
+```bash
+POST /accounts/{account_id}/transactions
 {
-  "account_id": 1,
+  "type": "withdraw",
   "amount": 100.00
 }
+```
 
-🔸 Consultar Extrato
-
+### 🔸 Consultar Extrato
+```bash
 GET /accounts/1/statement
 Authorization: Bearer <token>
+```
 
-🧭 Endpoints Principais
-Método	Endpoint	Descrição	Autenticação
-🟩 POST	/users/register	Cadastra um novo usuário	❌
-🟩 POST	/users/login	Autentica o usuário e gera token JWT	❌
-🟩 POST	/accounts/	Cria uma conta para o usuário autenticado	✅
-🟦 GET	/accounts/{id}/statement	Retorna o extrato da conta	✅
-🟨 POST	/transactions/deposit	Realiza um depósito na conta	✅
-🟥 POST	/transactions/withdraw	Realiza um saque na conta (se houver saldo)	✅
-🛡️ Validações Implementadas
+---
 
-    ❌ Bloqueio de transações com valores negativos
+## 🧭 Endpoints Principais
 
-    ⚖️ Verificação de saldo antes de permitir saques
+| Método | Endpoint | Descrição | Autenticação |
+|:------:|:----------|:-----------|:--------------|
+| 🟩 **POST** | `/users/register` | Cadastra um novo usuário | ❌ |
+| 🟩 **POST** | `/users/login` | Autentica o usuário e gera token JWT | ❌ |
+| 🟩 **POST** | `/accounts/` | Cria uma conta para o usuário autenticado | ✅ |
+| 🟦 **GET** | `/accounts/{id}/statement` | Retorna o extrato da conta | ✅ |
+| 🟨 **POST** | `/accounts/{account_id}/transactions` | Cria depósito/saque na conta | ✅ |
 
-    🔐 Proteção de endpoints com autenticação JWT
+---
 
-    🧱 Associação entre conta e usuário
+## 🛡️ Validações Implementadas
 
-🧠 Tecnologias Utilizadas
-Categoria	Ferramenta
-Linguagem	Python 3.10+
-Framework	FastAPI
-Banco de Dados	SQLite
-ORM	SQLAlchemy
-Autenticação	JWT (PyJWT)
-Validação	Pydantic
-Servidor	Uvicorn
-🧩 Boas Práticas Implementadas
+- ❌ Bloqueio de transações com valores negativos  
+- ⚖️ Verificação de saldo antes de permitir saques  
+- 🔐 Proteção de endpoints com autenticação JWT  
+- 🧱 Associação entre conta e usuário  
 
-    Organização modular seguindo arquitetura limpa
+---
 
-    Uso de async/await para operações assíncronas
+## 🧠 Tecnologias Utilizadas
 
-    Separação entre camadas (Models, Schemas, Routers e Utils)
+| Categoria | Ferramenta |
+|------------|-------------|
+| Linguagem | Python 3.10+ |
+| Framework | FastAPI |
+| Banco de Dados | SQLite |
+| ORM | SQLAlchemy |
+| Autenticação | JWT (python-jose) |
+| Validação | Pydantic |
+| Servidor | Uvicorn |
 
-    Documentação automática com OpenAPI / Swagger
+---
 
-    Tratamento de exceções e respostas padronizadas
+## 🧩 Boas Práticas Implementadas
 
-🧪 Testes e Validação
+- Organização modular seguindo arquitetura limpa  
+- Uso de **async/await** para operações assíncronas  
+- Separação entre camadas (Models, Schemas, Routers e Utils)  
+- Documentação automática com **OpenAPI / Swagger**  
+- Tratamento de exceções e respostas padronizadas  
 
-Os endpoints podem ser testados diretamente via Swagger UI ou ferramentas como Postman e Insomnia.
-Todos os métodos possuem validações de entrada via Pydantic, garantindo integridade e consistência dos dados.
-📦 Requisitos
+---
 
-    Python 3.10 ou superior
+## 🧪 Testes e Validação
 
-    pip atualizado
+Os endpoints podem ser testados diretamente via **Swagger UI** ou ferramentas como **Postman** e **Insomnia**.  
+Todos os métodos possuem validações de entrada via **Pydantic**, garantindo integridade e consistência dos dados.
 
-    FastAPI, Uvicorn, SQLAlchemy, PyJWT e Pydantic
+---
+
+## 📦 Requisitos
+
+- Python 3.10 ou superior  
+- pip atualizado  
+- FastAPI, Uvicorn, SQLAlchemy, python-jose, passlib e Pydantic  
 
 Instale tudo com:
 
+```bash
 pip install -r requirements.txt
+```
 
-📜 Licença
+---
 
-Este projeto está sob a licença MIT.
+## 📜 Licença
+
+Este projeto está sob a licença **MIT**.  
 Sinta-se livre para utilizá-lo, modificá-lo e aprimorá-lo conforme suas necessidades.
-👨‍💻 Autor
 
-Rogério Clynton Ribeiro
-💼 ClyntonBoss
+---
 
+## 👨‍💻 Autor
 
+**Rogério Clynton Ribeiro**  
+📍 Volta Redonda - RJ  
+💼 [ClyntonChronos](https://github.com/ClyntonChronos)  
 💡 “Inovação é transformar conhecimento em valor real.”
-💬 Agradecimentos
 
-Agradecimentos especiais à equipe Luizalabs e DIO (Digital Innovation One) pela inspiração e incentivo ao domínio de boas práticas em Python™ e desenvolvimento assíncrono com FastAPI.
+---
 
-⭐ Se este projeto te inspirou, não esqueça de deixar uma estrela no repositório!
+## 💬 Agradecimentos
+
+Agradecimentos especiais à equipe **Luizalabs** pela inspiração e incentivo ao domínio de **boas práticas em Python** e **desenvolvimento assíncrono com FastAPI**.
+
+---
+
+⭐ _Se este projeto te inspirou, não esqueça de deixar uma estrela no repositório!_
