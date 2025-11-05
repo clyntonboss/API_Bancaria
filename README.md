@@ -55,7 +55,7 @@ A API foi projetada para gerenciar **contas bancárias**, **transações (depós
 ├── requirements.txt       # Dependências do projeto
 └── README.md              # Documentação do projeto
 
-🚀 Como Executar o Projeto
+# 🚀 Como Executar o Projeto
 1️⃣ Clonar o repositório
 
 git clone https://github.com/SEU_USUARIO/bank-api.git
